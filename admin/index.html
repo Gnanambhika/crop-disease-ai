@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Crop Health AI · Administration</title>
+  <link rel="stylesheet" href="styles.css">
+  <script type="module" src="app.js"></script>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><svg viewBox="0 0 40 40" width="40" height="40" aria-hidden="true"><rect width="40" height="40" rx="12" fill="#174d35"/><path d="M11 26C9 14 22 10 30 10c0 12-4 22-15 20m-2-2 13-13" fill="none" stroke="#e0efcf" stroke-width="2.5" stroke-linecap="round"/></svg><div><strong>Crop Health AI</strong><span>Administration workspace</span></div></div>
+    <div class="header-actions"><span class="research-tag">Research edition</span><span id="identity" hidden></span><button id="logout" class="secondary" hidden>Sign out</button></div>
+  </header>
+  <main>
+    <p class="notice research-notice"><strong>Research model</strong><span>Confidence does not confirm a disease. Catalog edits do not change the classes supported by the app.</span></p>
+    <p id="message" role="status" aria-live="polite"></p>
+    <section id="login-panel" class="card login">
+      <div class="eyebrow">Welcome back</div>
+      <h1>Administrator sign in</h1>
+      <p class="muted">Manage crop information, review feedback, and follow optional farmer backups.</p>
+      <form id="login-form">
+        <label>Email<input name="email" type="email" autocomplete="username" required maxlength="254"></label>
+        <label>Password<input name="password" type="password" autocomplete="current-password" required></label>
+        <button type="submit">Sign in</button>
+      </form>
+      <p class="login-footnote">Use the administrator account created on your server. Farmers can scan leaves without signing in.</p>
+    </section>
+    <section id="workspace" hidden>
+      <nav aria-label="Management sections">
+        <div class="nav-label">Workspace</div>
+        <button data-view="dashboard"><span aria-hidden="true">◫</span>Dashboard</button>
+        <button data-view="predictions"><span aria-hidden="true">▤</span>Predictions</button>
+        <button data-view="users"><span aria-hidden="true">♙</span>Users</button>
+        <div class="nav-label">Crop information</div>
+        <button data-view="crops"><span aria-hidden="true">♧</span>Crops</button>
+        <button data-view="diseases"><span aria-hidden="true">◇</span>Diseases</button>
+        <button data-view="treatments"><span aria-hidden="true">▧</span>Treatments</button>
+        <button data-view="feedback"><span aria-hidden="true">☰</span>Feedback</button>
+        <p class="sidebar-note">Leaf analysis stays on the phone.<br>Only optional backups reach this workspace.</p>
+      </nav>
+      <section id="content" aria-live="polite"></section>
+    </section>
+  </main>
+  <footer>Crop Health AI · Offline-first crop research</footer>
+  <dialog id="editor"><form id="editor-form"><h2 id="editor-title"></h2><div id="editor-fields"></div><p id="editor-error" role="alert"></p><div class="actions"><button type="button" id="cancel">Cancel</button><button type="submit">Save</button></div></form></dialog>
+</body>
+</html>
